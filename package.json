@@ -1,0 +1,23 @@
+{
+  "name": "work-telegram-bot-sg-sales",
+  "version": "1.0.0",
+  "description": "Telegram sales bot",
+  "main": "",
+  "scripts": {
+    "up": "docker-compose up -d",
+    "down": "docker-compose down",
+    "composer-i": "docker-compose run --rm composer install",
+    "composer-autoload": "docker-compose run --rm composer dump-autoload",
+    "localtunnel": "lt --port 8002 --subdomain tg-sg-bot-salest",
+    "php-exec": "docker-compose exec -it php bash",
+    "check-redis": "docker exec -it corp-integrations-php php -m | grep redis",
+    "redis-ping": "docker exec -it corp-integrations-redis redis-cli ping",
+    "images-list": "docker-compose images",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Igor Shvetsov",
+  "license": "MIT",
+  "devDependencies": {
+    "localtunnel": "^2.0.2"
+  }
+}
