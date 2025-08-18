@@ -28,7 +28,7 @@ $container->singleton('redis', function () use ($redisManager) {
 });
 
 // Теперь можно использовать Redis::фасад()
-Redis::set('step', 'testKey');
-$value = Redis::get('step');
-
-echo $value;
+//Redis::set('step', 'testKey');
+//$value = Redis::get('step');
+//
+//echo $value;
