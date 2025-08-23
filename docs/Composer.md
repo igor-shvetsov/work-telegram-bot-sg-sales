@@ -12,4 +12,5 @@
 docker-compose run --rm composer require illuminate/redis illuminate/support
 docker-compose run --rm composer require predis/predis
 docker-compose run --rm composer require illuminate/container
+docker-compose run --rm composer require illuminate/translation
 ```
