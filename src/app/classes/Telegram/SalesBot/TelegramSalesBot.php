@@ -19,6 +19,9 @@ class TelegramSalesBot {
     private \Telegram\Bot\Api $telegram;
     private \Telegram\Bot\Objects\Update $update;
     private  \Illuminate\Support\Collection $message;
+    private $from;
+    private $callbackQuery;
+    private $callbackQueryData;
     private $chatId;
     private $text;
 
@@ -28,11 +31,19 @@ class TelegramSalesBot {
      * @var array
      */
     private array $userSelection = [
-        'contactDetails' => '',
+        'userInfo' => [
+            'userId' => null,
+            'firstName' => null,
+            'lastName' => null,
+            'username' => null,
+            'languageCode' => null,
+            'chatId' => null,
+        ],
+        'contactDetails' => null,
         'products' => [
-            'predefined' => [],
+            'selected' => null,
             // свой вариант запрашиваемого продукта или услуги
-            'custom' => '',
+            'custom' => null,
         ],
         // указание пользователем страны
         'targetCountry' => [
@@ -65,8 +76,11 @@ class TelegramSalesBot {
         }
 
         $this->message = $this->update->getMessage();
+        $this->callbackQuery = $this->update->getCallbackQuery();
+        $this->callbackQueryData = !empty($this->callbackQuery) ? $this->callbackQuery->getData() : null;
         $this->chatId = $this->message->getChat()->getId();
         $this->text = $this->message->getText();
+        $this->from = $this->message->getFrom();
 
         // $userSelection = json_decode(Redis::get("user:{$this->chatId}:selection"), true);
 
@@ -82,10 +96,29 @@ class TelegramSalesBot {
 
         error_log($step);
 
-        if ($step == 1) {
+
+//        if ($this->update->has('callback_query')) {
+//            $data = $this->update->getCallbackQuery()->getData();
+//            $chatId = $this->update->getMessage()->getChat()->getId();
+//
+//            if ($data === 'start') {
+//
+//            }
+//        }
+
+        if (!$this->hasStep($this->chatId)) {
+            if ($this->isStartCommand()) {
+                $this->setUserInfo();
+            }
+            $this->setStep($this->chatId, 1);
+        } else if ($this->callbackQueryData === 'start') {
+            $this->handleStepConcactDetails(true);
+        } else if ($step == 1) {
             $this->handleStepConcactDetails();
         } else if ($step == 2) {
-
+            $this->handleStepProducts();
+        } else if ($step == 2.2) {
+            $this->handleStepCustomProduct();
         }
 
         Redis::set("user:{$this->chatId}:selection", json_encode($this->userSelection), 'EX', 3600);
@@ -106,6 +139,33 @@ class TelegramSalesBot {
         // $this->handleThirdStep();
 
         error_log('User text: ' . $this->text);
+    }
+
+    private function isStartCommand(): bool {
+        return !empty($this->text) && $this->text === '/start';
+    }
+
+    private function setUserInfo(): void {
+        if (!empty($this->from)) {
+            $this->userSelection['userInfo']['userId'] = $this->from->getId();
+            $this->userSelection['userInfo']['firstName'] = $this->from->getFirstName();
+            $this->userSelection['userInfo']['lastName'] = $this->from->getLastName();
+            $this->userSelection['userInfo']['username'] = $this->from->getUsername();
+            $this->userSelection['userInfo']['languageCode'] = $this->from->getLanguageCode();
+        }
+
+        if (!empty($this->chatId)) {
+            $this->userSelection['userInfo']['chatId'] = $this->chatId;
+        }
+    }
+
+    /**
+     * Проверяет есть ли установленный шаг пользователя
+     */
+    private function hasStep(int $chatId): bool
+    {
+        $step = Redis::get("user:{$chatId}:step");
+        return !empty($step);
     }
 
     /**
@@ -169,7 +229,7 @@ class TelegramSalesBot {
      *
      * @return void
      */
-    private function handleStepProducts(): void {
+    private function handleStepProducts($start = false): void {
 
         // Массив для хранения выбранных продуктов
         // 'product_1', ...
@@ -184,7 +244,161 @@ class TelegramSalesBot {
 
         // error_log('p1', json_encode($update));
 
-        if (isset($this->update['callback_query'])) {
+        if (!$start && isset($this->callbackQueryData)) {
+            error_log(json_encode($this->update['callback_query']));
+
+            // finish_selection - окончение выбора, кнопка Далее
+            $data = $this->update['callback_query']['data'];
+            $message = $this->update['callback_query']['message'];
+            $chatId = $message['chat']['id'];
+            $messageId = $message['message_id'];
+
+            error_log('userSelection: ' . json_encode($this->userSelection['products']));
+
+            // if (!empty($this->userSelection)) {
+            // $selectedProducts = $this->userSelection['products']['predefined'];
+            // }
+
+            // $selectedProducts = Redis::hgetall("user:{$chatId}:selection1");
+
+            if (strpos($data, 'product_') === 0) {
+
+                // Обработка переключения состояния продукта
+                $productId = explode('product_', $data)[1];
+
+                if ($productId === 'other') {
+                    $this->setStep($this->chatId, '');
+                } else {
+                    $this->userSelection['products']['selected'] = $productId;
+                }
+
+
+                // Redis::hmset("user:{$chatId}:selection1", $this->userSelection);
+                // Redis::
+            }
+
+        } else {
+            // Первоначальная отправка сообщения с кнопками
+            $keyboard = $this->generateProductKeyboard();
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => "What products are you interested in? (select only one)",
+                'reply_markup' => $keyboard,
+            ]);
+        }
+    }
+
+    private function handleStepCustomProduct($start = false): void {
+        if (!$start && $this->update->getMessage()) {
+            $userResponse = $this->update->getMessage()->getText();
+
+            $this->userSelection['products']['custom'] = $userResponse;
+            error_log('userResponse:' . $userResponse);
+
+            // переходим к следующему шагу
+            $this->setStep($this->chatId, 3);
+            // $this->handleStepProducts(true);
+        } else {
+            $text = "Please write you custom product.";
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => $text,
+            ]);
+        }
+    }
+
+    private function handleStepTargetCountries($start = false): void {
+        if (!$start && $this->update->getMessage()) {
+            $userResponse = $this->update->getMessage()->getText();
+
+            $this->userSelection['products']['custom'] = $userResponse;
+            error_log('userResponse:' . $userResponse);
+
+            // переходим к следующему шагу
+            $this->setStep($this->chatId, 3);
+            // $this->handleStepProducts(true);
+        } else {
+            $text = "Please write you custom product.";
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => $text,
+            ]);
+        }
+    }
+
+    private function handleStepCustomCountry($start = false): void {
+        if (!$start && $this->update->getMessage()) {
+            $userResponse = $this->update->getMessage()->getText();
+
+            $this->userSelection['products']['custom'] = $userResponse;
+            error_log('userResponse:' . $userResponse);
+
+            // переходим к следующему шагу
+            $this->setStep($this->chatId, 3);
+            // $this->handleStepProducts(true);
+        } else {
+            $text = "Please write you custom product.";
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => $text,
+            ]);
+        }
+    }
+
+    private function handleStepAdditionalComments($start = false): void {
+        if (!$start && $this->update->getMessage()) {
+            $userResponse = $this->update->getMessage()->getText();
+
+            $this->userSelection['products']['custom'] = $userResponse;
+            error_log('userResponse:' . $userResponse);
+
+            // переходим к следующему шагу
+            $this->setStep($this->chatId, 3);
+            // $this->handleStepProducts(true);
+        } else {
+            $text = "Please write you custom product.";
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => $text,
+            ]);
+        }
+    }
+
+    private function handleStepCompleteChat(): void {
+        $text = "Thank you for your request. We will be in touch soon, typically within 48 hours.";
+
+        $this->telegram->sendMessage([
+            'chat_id' => $this->chatId,
+            'text' => $text,
+        ]);
+    }
+
+    /**
+     * Выбор продукта
+     *
+     * @return void
+     */
+    private function handleStepProductsV2($start = false): void {
+
+        // Массив для хранения выбранных продуктов
+        // 'product_1', ...
+        $selectedProducts = $this->userSelection['products']['predefined'];
+
+        // Продукты компании
+        $products = [
+            'product_1' => 'Продукт Premium',
+            'product_2' => 'Продукт Standard',
+            'product_3' => 'Продукт Basic'
+        ];
+
+        // error_log('p1', json_encode($update));
+
+        if (!$start && isset($this->update['callback_query'])) {
             error_log(json_encode($this->update['callback_query']));
 
             // finish_selection - окончение выбора, кнопка Далее
@@ -280,7 +494,7 @@ class TelegramSalesBot {
      * @param $selectedProducts
      * @return Keyboard
      */
-    private function generateProductKeyboard($products, $selectedProducts): Keyboard {
+    private function generateProductKeyboardV2($products, $selectedProducts): Keyboard {
         $inlineKeyboard = [];
 
         foreach ($products as $id => $name) {
@@ -309,11 +523,81 @@ class TelegramSalesBot {
     }
 
     /**
+     * Функция для генерации клавиатуры с учетом выбранных продуктов
+     *
+     * @param $products
+     * @param $selectedProducts
+     * @return Keyboard
+     */
+    private function generateProductKeyboard(): Keyboard {
+        $inlineKeyboard = [];
+
+        $inlineKeyboard[] = [
+            Keyboard::inlineButton([
+                'text' => "Online Casino Solution",
+                'callback_data' => "product_1"
+            ]),
+            Keyboard::inlineButton([
+                'text' => "Sports Betting Solutions",
+                'callback_data' => "product_2"
+            ]),
+        ];
+
+        $inlineKeyboard[] = [
+            Keyboard::inlineButton([
+                'text' => "Games Integration",
+                'callback_data' => "product_3"
+            ]),
+            Keyboard::inlineButton([
+                'text' => "Banking and Licensing",
+                'callback_data' => "product_4"
+            ]),
+        ];
+
+        $inlineKeyboard[] = [
+            Keyboard::inlineButton([
+                'text' => "Other (your answer)",
+                'callback_data' => "product_other"
+            ]),
+        ];
+
+        return Keyboard::make([
+            'inline_keyboard' => $inlineKeyboard,
+        ]);
+    }
+
+    /**
      *  Сontact details
      *
      * @return void
      */
-    private function handleStepConcactDetails(): void {
+    private function handleStepConcactDetails($start = false): void {
+        if (!$start && $this->update->getMessage()) {
+            $userResponse = $this->update->getMessage()->getText();
+
+            $this->userSelection['contactDetails'] = $userResponse;
+            error_log('userResponse:' . $userResponse);
+
+            // переходим к следующему шагу
+            $this->setStep($this->chatId, 2);
+            $this->handleStepProducts(true);
+        } else {
+            $contactRequestText = "Please share your contact details.\n"
+                . "Nickname in TG or other preferable way to connect";
+
+            $this->telegram->sendMessage([
+                'chat_id' => $this->chatId,
+                'text' => $contactRequestText,
+            ]);
+        }
+    }
+
+    /**
+     *  Сontact details
+     *
+     * @return void
+     */
+    private function handleStepConcactDetailsV2(): void {
 
         if ($this->update->getMessage() && $this->update->getMessage()->getReplyToMessage()) {
             $replyToMessageId = $this->update->getMessage()->getReplyToMessage()->getMessageId();

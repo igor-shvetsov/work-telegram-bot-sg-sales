@@ -20,8 +20,7 @@ class StartCommand extends Command
         error_log('start');
 
         // Текст приветствия
-        $welcomeText = "Welcome to the official SoftGamings Telegram Bot."
-            . "Build your own iGaming solution today!\n\n"
+        $welcomeText = "Welcome to the official SoftGamings Telegram Bot. Build your own iGaming solution today!\n\n"
             . "By pressing “Start”, you agree to share your personal data (such as contact information)."
             . "Let’s get started!";
 

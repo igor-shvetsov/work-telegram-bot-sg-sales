@@ -1,0 +1,13 @@
+config:
+  target: "http://localhost:8002"
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      rampTo: 500
+      name: test1
+
+scenarios:
+  - name: "Тест главной страницы"
+    flow:
+      - get:
+          url: "/"

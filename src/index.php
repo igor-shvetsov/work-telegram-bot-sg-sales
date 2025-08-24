@@ -1,5 +1,8 @@
 <?php
 
+// В обработчике вебхука добавьте заголовок
+$_SERVER['HTTP_XDEBUG_SESSION'] = 'PHPSTORM';
+
 use App\Telegram\SalesBot\TelegramSalesBot;
 
 require __DIR__ . '/vendor/autoload.php';

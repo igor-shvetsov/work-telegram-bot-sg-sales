@@ -28,3 +28,4 @@ volumes/
 src/vendor/
 node_modules/
 node_modules/
+logs/

@@ -7,7 +7,7 @@ use Illuminate\Redis\RedisManager;
 // Создаём контейнер (нужен для фасадов Laravel)
 $container = new Container();
 
-// Настройки Redis (аналогично bootstrap/database.php в Laravel)
+// Настройки Redis (аналогично bootstrap/database.php-v1 в Laravel)
 $config = [
     'client' => 'predis', // или 'phpredis'
     'default' => [
