@@ -612,3 +612,110 @@ Stack trace:
 [24-Aug-2025 19:20:00 UTC] {"id":"1298843044977755713","from":{"id":302410462,"is_bot":false,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","language_code":"ru"},"message":{"message_id":268,"from":{"id":8000600930,"is_bot":true,"first_name":"MySgSalesBot","username":"MySgSalesBot"},"chat":{"id":302410462,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","type":"private"},"date":1756061967,"text":"What products are you interested in? (select only one)","reply_markup":{"inline_keyboard":[[{"text":"Online Casino Solution","callback_data":"product_1"},{"text":"Sports Betting Solutions","callback_data":"product_2"}],[{"text":"Games Integration","callback_data":"product_3"},{"text":"Banking and Licensing","callback_data":"product_4"}],[{"text":"Other (your answer)","callback_data":"product_other"}]]}},"chat_instance":"2804501990144952489","data":"product_1"}
 [24-Aug-2025 19:20:00 UTC] userSelection: {"predefined":[],"custom":""}
 [24-Aug-2025 19:20:00 UTC] {"userInfo":{"userId":null,"firstName":null,"lastName":null,"username":null,"languageCode":null,"chatId":null},"contactDetails":"","products":{"predefined":[],"custom":""},"targetCountry":{"predefined":"","custom":""},"additionalComment":""}
+[24-Aug-2025 19:23:57 UTC] {"id":"1298843044977755713","from":{"id":302410462,"is_bot":false,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","language_code":"ru"},"message":{"message_id":268,"from":{"id":8000600930,"is_bot":true,"first_name":"MySgSalesBot","username":"MySgSalesBot"},"chat":{"id":302410462,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","type":"private"},"date":1756061967,"text":"What products are you interested in? (select only one)","reply_markup":{"inline_keyboard":[[{"text":"Online Casino Solution","callback_data":"product_1"},{"text":"Sports Betting Solutions","callback_data":"product_2"}],[{"text":"Games Integration","callback_data":"product_3"},{"text":"Banking and Licensing","callback_data":"product_4"}],[{"text":"Other (your answer)","callback_data":"product_other"}]]}},"chat_instance":"2804501990144952489","data":"product_1"}
+[24-Aug-2025 19:23:57 UTC] userSelection: {"predefined":[],"custom":""}
+[24-Aug-2025 19:23:57 UTC] {"userInfo":{"userId":null,"firstName":null,"lastName":null,"username":null,"languageCode":null,"chatId":null},"contactDetails":"","products":{"predefined":[],"custom":""},"targetCountry":{"predefined":"","custom":""},"additionalComment":""}
+[24-Aug-2025 19:23:57 UTC] User selection from cache: {"userInfo":{"userId":null,"firstName":null,"lastName":null,"username":null,"languageCode":null,"chatId":null},"contactDetails":"","products":{"predefined":[],"custom":""},"targetCountry":{"predefined":"","custom":""},"additionalComment":""}
+[24-Aug-2025 19:23:57 UTC] 2
+[24-Aug-2025 19:23:57 UTC] {"id":"1298843046030713686","from":{"id":302410462,"is_bot":false,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","language_code":"ru"},"message":{"message_id":247,"from":{"id":8000600930,"is_bot":true,"first_name":"MySgSalesBot","username":"MySgSalesBot"},"chat":{"id":302410462,"first_name":"\u0418\u0433\u043e\u0440\u044c","last_name":"\u0428\u0432\u0435\u0446\u043e\u0432","username":"IgorShvetsov","type":"private"},"date":1756060845,"photo":[{"file_id":"AgACAgIAAxkDAAMlaKCewgrVDi2qo948JYMO1_ALZOkAAj_6MRuLEAABSX3WAUYCil7NAQADAgADcwADNgQ","file_unique_id":"AQADP_oxG4sQAAFJeA","file_size":1104,"width":90,"height":39},{"file_id":"AgACAgIAAxkDAAMlaKCewgrVDi2qo948JYMO1_ALZOkAAj_6MRuLEAABSX3WAUYCil7NAQADAgADbQADNgQ","file_unique_id":"AQADP_oxG4sQAAFJcg","file_size":9588,"width":320,"height":140},{"file_id":"AgACAgIAAxkDAAMlaKCewgrVDi2qo948JYMO1_ALZOkAAj_6MRuLEAABSX3WAUYCil7NAQADAgADeAADNgQ","file_unique_id":"AQADP_oxG4sQAAFJfQ","file_size":10266,"width":353,"height":154}],"caption":"Welcome to the official SoftGamings Telegram Bot.Build your own iGaming solution today!\n\nBy pressing \u201cStart\u201d, you agree to share your personal data (such as contact information).Let\u2019s get started!","reply_markup":{"inline_keyboard":[[{"text":"Start","callback_data":"start"}]]}},"chat_instance":"2804501990144952489","data":"start"}
+[24-Aug-2025 19:23:57 UTC] userSelection: {"predefined":[],"custom":""}
+[24-Aug-2025 19:23:58 UTC] {"userInfo":{"userId":null,"firstName":null,"lastName":null,"username":null,"languageCode":null,"chatId":null},"contactDetails":"","products":{"predefined":[],"custom":""},"targetCountry":{"predefined":"","custom":""},"additionalComment":""}
+[27-Aug-2025 19:57:40 UTC] PHP Warning:  Module "redis" is already loaded in Unknown on line 0
+[27-Aug-2025 19:57:59 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 19:58:00 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 19:58:09 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 19:58:18 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 19:58:42 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 19:58:46 UTC] Xdebug: [Step Debug] Could not connect to debugging client. Tried: host.docker.internal:9003 (through xdebug.client_host/xdebug.client_port).
+[27-Aug-2025 20:12:13 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:12:15 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:13:03 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:13:04 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:13:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:15:28 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:15:29 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:15:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:15:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Lang" not found in /var/www/html/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /var/www/html/index.php on line 5
+[27-Aug-2025 20:16:17 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "translator" does not exist in /var/www/html/vendor/illuminate/container/Container.php:1160
+Stack trace:
+#0 /var/www/html/vendor/illuminate/container/Container.php(1160): ReflectionClass->__construct('translator')
+#1 /var/www/html/vendor/illuminate/container/Container.php(971): Illuminate\Container\Container->build('translator')
+#2 /var/www/html/vendor/illuminate/container/Container.php(902): Illuminate\Container\Container->resolve('translator', Array)
+#3 /var/www/html/vendor/illuminate/container/Container.php(1822): Illuminate\Container\Container->make('translator')
+#4 /var/www/html/vendor/illuminate/support/Facades/Facade.php(240): Illuminate\Container\Container->offsetGet('translator')
+#5 /var/www/html/vendor/illuminate/support/Facades/Facade.php(211): Illuminate\Support\Facades\Facade::resolveFacadeInstance('translator')
+#6 /var/www/html/vendor/illuminate/support/Facades/Facade.php(357): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#7 /var/www/html/index.php(15): Illuminate\Support\Facades\Facade::__callStatic('get', Array)
+#8 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [translator] does not exist. in /var/www/html/vendor/illuminate/container/Container.php:1162
+Stack trace:
+#0 /var/www/html/vendor/illuminate/container/Container.php(971): Illuminate\Container\Container->build('translator')
+#1 /var/www/html/vendor/illuminate/container/Container.php(902): Illuminate\Container\Container->resolve('translator', Array)
+#2 /var/www/html/vendor/illuminate/container/Container.php(1822): Illuminate\Container\Container->make('translator')
+#3 /var/www/html/vendor/illuminate/support/Facades/Facade.php(240): Illuminate\Container\Container->offsetGet('translator')
+#4 /var/www/html/vendor/illuminate/support/Facades/Facade.php(211): Illuminate\Support\Facades\Facade::resolveFacadeInstance('translator')
+#5 /var/www/html/vendor/illuminate/support/Facades/Facade.php(357): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#6 /var/www/html/index.php(15): Illuminate\Support\Facades\Facade::__callStatic('get', Array)
+#7 {main}
+  thrown in /var/www/html/vendor/illuminate/container/Container.php on line 1162
+[27-Aug-2025 20:16:18 UTC] PHP Fatal error:  Uncaught ReflectionException: Class "translator" does not exist in /var/www/html/vendor/illuminate/container/Container.php:1160
+Stack trace:
+#0 /var/www/html/vendor/illuminate/container/Container.php(1160): ReflectionClass->__construct('translator')
+#1 /var/www/html/vendor/illuminate/container/Container.php(971): Illuminate\Container\Container->build('translator')
+#2 /var/www/html/vendor/illuminate/container/Container.php(902): Illuminate\Container\Container->resolve('translator', Array)
+#3 /var/www/html/vendor/illuminate/container/Container.php(1822): Illuminate\Container\Container->make('translator')
+#4 /var/www/html/vendor/illuminate/support/Facades/Facade.php(240): Illuminate\Container\Container->offsetGet('translator')
+#5 /var/www/html/vendor/illuminate/support/Facades/Facade.php(211): Illuminate\Support\Facades\Facade::resolveFacadeInstance('translator')
+#6 /var/www/html/vendor/illuminate/support/Facades/Facade.php(357): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#7 /var/www/html/index.php(15): Illuminate\Support\Facades\Facade::__callStatic('get', Array)
+#8 {main}
+
+Next Illuminate\Contracts\Container\BindingResolutionException: Target class [translator] does not exist. in /var/www/html/vendor/illuminate/container/Container.php:1162
+Stack trace:
+#0 /var/www/html/vendor/illuminate/container/Container.php(971): Illuminate\Container\Container->build('translator')
+#1 /var/www/html/vendor/illuminate/container/Container.php(902): Illuminate\Container\Container->resolve('translator', Array)
+#2 /var/www/html/vendor/illuminate/container/Container.php(1822): Illuminate\Container\Container->make('translator')
+#3 /var/www/html/vendor/illuminate/support/Facades/Facade.php(240): Illuminate\Container\Container->offsetGet('translator')
+#4 /var/www/html/vendor/illuminate/support/Facades/Facade.php(211): Illuminate\Support\Facades\Facade::resolveFacadeInstance('translator')
+#5 /var/www/html/vendor/illuminate/support/Facades/Facade.php(357): Illuminate\Support\Facades\Facade::getFacadeRoot()
+#6 /var/www/html/index.php(15): Illuminate\Support\Facades\Facade::__callStatic('get', Array)
+#7 {main}
+  thrown in /var/www/html/vendor/illuminate/container/Container.php on line 1162
+[27-Aug-2025 20:23:45 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /var/www/html/app/bootstrap/app.php:4
+Stack trace:
+#0 /var/www/html/index.php(14): require()
+#1 {main}
+  thrown in /var/www/html/app/bootstrap/app.php on line 4
+[27-Aug-2025 20:23:45 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Application" not found in /var/www/html/app/bootstrap/app.php:4
+Stack trace:
+#0 /var/www/html/index.php(14): require()
+#1 {main}
+  thrown in /var/www/html/app/bootstrap/app.php on line 4

@@ -4,11 +4,14 @@
     "type": "project",
     "require": {
         "php": "^8.1",
+        "illuminate/config": "^12.26",
         "illuminate/container": "^12.24",
         "illuminate/database": "^12.24",
         "illuminate/events": "^12.24",
+        "illuminate/filesystem": "^12.26",
         "illuminate/redis": "^12.24",
         "illuminate/support": "^12.24",
+        "illuminate/translation": "^12.26",
         "irazasyed/telegram-bot-sdk": "^3.0",
         "predis/predis": "^3.2",
         "vlucas/phpdotenv": "^5.6"
