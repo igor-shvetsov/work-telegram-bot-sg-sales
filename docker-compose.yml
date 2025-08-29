@@ -147,6 +147,22 @@ services:
       - mysql
     restart: unless-stopped
 
+  vault:
+    image: vault:1.13.3
+    container_name: corp-integrations-vault
+    environment:
+      # устанавливает идентификатор изначально сгенерированного корневого токена на заданное значение
+      - VAULT_DEV_ROOT_TOKEN_ID=myroot
+      # устанавливает IP:порт прослушивателя сервера разработки (по умолчанию 0.0.0.0:8200)
+      - VAULT_DEV_LISTEN_ADDRESS=0.0.0.0:8200
+    ports:
+      - "8200:8200" # http://localhost:8200
+    volumes:
+      - ./volumes/vault:/vault/file
+    cap_add:
+      - IPC_LOCK
+    restart: unless-stopped
+
 networks:
   app_network:
     driver: bridge

@@ -2,7 +2,6 @@
 
 Корпоративные интеграции.
 
-
 ## Привязка вебхука Telegram бота к локальному Docker окружению
 
 ### Запуск Docker окружения
@@ -58,7 +57,13 @@ https://tg-sg-bot-sales.loca.lt/login
 
 ## Докер
 
+### Зайти в нужный контейнер в терминальный режим
+
 sudo docker-compose exec -it corp-integrations-php bash
+
+### Удаление образов
+
+docker-compose images
 
 docker rmi -f <IMAGE_ID>
 
@@ -68,6 +73,7 @@ docker-compose run --rm composer require illuminate/redis illuminate/support
 docker-compose run --rm composer require predis/predis
 docker-compose run --rm composer require illuminate/container
 docker-compose run --rm composer require illuminate/database illuminate/events illuminate/support vlucas/phpdotenv
+docker-compose run --rm composer require lucasberto/laravel-vault
 
 ## Telegram Bot
 

@@ -13,6 +13,7 @@
         "illuminate/support": "^12.24",
         "illuminate/translation": "^12.26",
         "irazasyed/telegram-bot-sdk": "^3.0",
+        "mdma4d/laravel-vault": "^1.1",
         "predis/predis": "^3.2",
         "vlucas/phpdotenv": "^5.6"
     },

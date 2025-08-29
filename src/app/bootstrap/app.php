@@ -4,6 +4,10 @@ use Illuminate\Container\Container;
 use Illuminate\Config\Repository;
 use Illuminate\Support\Facades\Facade;
 
+// Загружаем переменные окружения (если используется .env)
+//$dotenv = Dotenv\Dotenv::createImmutable(__DIR__.'/../../');
+//$dotenv->load();
+
 // Создаем контейнер
 $app = new Container();
 
@@ -45,5 +49,40 @@ $app->singleton('translator', function ($app) {
 
     return $translator;
 });
+
+//// Регистрируем VaultServiceProvider вручную
+//$vaultProvider = new Mdma4d\Vault\VaultServiceProvider($app);
+//$vaultProvider->register(); // Вызываем метод register для привязки сервисов
+//// При необходимости вызовите $vaultProvider->boot() позже, после полной инициализации
+//
+//// Пытаемся загрузить конфигурацию из Vault
+//try {
+//    // Если в пакете есть метод boot, который запускает загрузку, вызываем его
+//    $vaultProvider->boot();
+//
+//    // ИЛИ если пакет предоставляет сервис 'vault', можем использовать его
+////    if ($app->bound('vault')) {
+////        $vaultService = $app->make('vault');
+////        // Предположим, что метод getConfig возвращает массив конфигурации из Vault
+////        $vaultConfig = $vaultService->getConfig();
+////        // Объединяем с существующей конфигурацией
+////        $currentConfig = $app['config']->all();
+////        $newConfig = array_merge($currentConfig, $vaultConfig);
+////        $app->instance('config', new Repository($newConfig));
+////    }
+//} catch (Exception $e) {
+//    // Обработка ошибок подключения к Vault
+//    error_log('Vault config loading failed: ' . $e->getMessage());
+//}
+
+//function trans($key, $replace = [])
+//{
+//    global $app;
+//
+//    return $app['translator']->get($key, $replace);
+//}
+
+// Делаем контейнер глобально доступным
+global $app;
 
 return $app;

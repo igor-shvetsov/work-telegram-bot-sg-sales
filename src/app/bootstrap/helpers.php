@@ -1,8 +1,12 @@
 <?php
 
-// Хелпер переводов
-function trans($key, $replace = []) {
-    global $app;
+if (!function_exists('trans')) {
 
-    return $app['translator']->get($key, $replace);
+    // Хелпер переводов
+    function trans($key, $replace = [])
+    {
+        global $app;
+
+        return $app['translator']->get($key, $replace);
+    }
 }
