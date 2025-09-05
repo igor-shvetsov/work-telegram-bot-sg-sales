@@ -1,0 +1,236 @@
+{
+  "items": [
+    {
+      "id": 129782,
+      "type": "user",
+      "name": "Новые",
+      "removed": null,
+      "order": 1,
+      "stay_duration": 7
+    },
+    {
+      "id": 182082,
+      "type": "user",
+      "name": "База РБ",
+      "removed": null,
+      "order": 2,
+      "stay_duration": null
+    },
+    {
+      "id": 165154,
+      "type": "user",
+      "name": "Новые: англ + техподдержка",
+      "removed": null,
+      "order": 3,
+      "stay_duration": null
+    },
+    {
+      "id": 165352,
+      "type": "user",
+      "name": "Новые: англ + тех скиллы",
+      "removed": null,
+      "order": 4,
+      "stay_duration": null
+    },
+    {
+      "id": 165155,
+      "type": "user",
+      "name": "Новые: только англ",
+      "removed": null,
+      "order": 5,
+      "stay_duration": null
+    },
+    {
+      "id": 164445,
+      "type": "user",
+      "name": "Прямой поиск",
+      "removed": null,
+      "order": 6,
+      "stay_duration": null
+    },
+    {
+      "id": 134451,
+      "type": "user",
+      "name": "Оценка резюме",
+      "removed": null,
+      "order": 7,
+      "stay_duration": null
+    },
+    {
+      "id": 138969,
+      "type": "user",
+      "name": "Аппрув резюме заказчиком",
+      "removed": null,
+      "order": 8,
+      "stay_duration": null
+    },
+    {
+      "id": 140587,
+      "type": "user",
+      "name": "Отобраны на рассмотрение\/Ведется коммуникация",
+      "removed": null,
+      "order": 9,
+      "stay_duration": null
+    },
+    {
+      "id": 129783,
+      "type": "user",
+      "name": "Приглашен на тестирование",
+      "removed": null,
+      "order": 10,
+      "stay_duration": 7
+    },
+    {
+      "id": 129819,
+      "type": "user",
+      "name": "Тестирование",
+      "removed": null,
+      "order": 11,
+      "stay_duration": 7
+    },
+    {
+      "id": 177355,
+      "type": "user",
+      "name": "Отобрано на ТЗ",
+      "removed": null,
+      "order": 12,
+      "stay_duration": null
+    },
+    {
+      "id": 136678,
+      "type": "user",
+      "name": "Отправлено ТЗ",
+      "removed": null,
+      "order": 13,
+      "stay_duration": null
+    },
+    {
+      "id": 136679,
+      "type": "user",
+      "name": "ТЗ на проверке",
+      "removed": null,
+      "order": 14,
+      "stay_duration": null
+    },
+    {
+      "id": 129784,
+      "type": "user",
+      "name": "Оценка теста заказчиком",
+      "removed": null,
+      "order": 15,
+      "stay_duration": 4
+    },
+    {
+      "id": 129785,
+      "type": "user",
+      "name": "Интервью с HR",
+      "removed": null,
+      "order": 16,
+      "stay_duration": 7
+    },
+    {
+      "id": 173587,
+      "type": "user",
+      "name": "Интервью с СЕО",
+      "removed": null,
+      "order": 17,
+      "stay_duration": null
+    },
+    {
+      "id": 173586,
+      "type": "user",
+      "name": "Интервью с CORE",
+      "removed": null,
+      "order": 18,
+      "stay_duration": null
+    },
+    {
+      "id": 129786,
+      "type": "user",
+      "name": "Интервью с тимлидом",
+      "removed": null,
+      "order": 19,
+      "stay_duration": 7
+    },
+    {
+      "id": 134452,
+      "type": "user",
+      "name": "Общее интервью",
+      "removed": null,
+      "order": 20,
+      "stay_duration": 5
+    },
+    {
+      "id": 173588,
+      "type": "user",
+      "name": "Доп.задание после интервью",
+      "removed": null,
+      "order": 21,
+      "stay_duration": null
+    },
+    {
+      "id": 156289,
+      "type": "user",
+      "name": "Приглашен на пробный день",
+      "removed": null,
+      "order": 22,
+      "stay_duration": null
+    },
+    {
+      "id": 129787,
+      "type": "user",
+      "name": "Принятие решения",
+      "removed": null,
+      "order": 23,
+      "stay_duration": 7
+    },
+    {
+      "id": 129788,
+      "type": "user",
+      "name": "Выставлен оффер",
+      "removed": null,
+      "order": 24,
+      "stay_duration": null
+    },
+    {
+      "id": 129789,
+      "type": "hired",
+      "name": "Оффер принят",
+      "removed": null,
+      "order": 25,
+      "stay_duration": null
+    },
+    {
+      "id": 129790,
+      "type": "user",
+      "name": "Выход на работу",
+      "removed": null,
+      "order": 26,
+      "stay_duration": null
+    },
+    {
+      "id": 134515,
+      "type": "user",
+      "name": "Резерв",
+      "removed": null,
+      "order": 27,
+      "stay_duration": null
+    },
+    {
+      "id": 175333,
+      "type": "user",
+      "name": "Запрос рекомендации",
+      "removed": null,
+      "order": 28,
+      "stay_duration": null
+    },
+    {
+      "id": 129791,
+      "type": "trash",
+      "name": "Отказ",
+      "removed": null,
+      "order": 9999,
+      "stay_duration": null
+    }
+  ]
+}

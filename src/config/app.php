@@ -40,4 +40,11 @@ return [
         'Lang' => Illuminate\Support\Facades\Lang::class,
         // Другие фасады при необходимости
     ],
+    'services' => [
+        'huntflow' => [
+            'base_url' => 'test1',
+            'api_token' => 'test2',
+            'account_id' => 'test3',
+        ],
+    ],
 ];
